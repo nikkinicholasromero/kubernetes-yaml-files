@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitamoto-otomatik-service
+  labels:
+    app: kitamoto-otomatik-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kitamoto-otomatik-service
+  template:
+    metadata:
+      labels:
+        app: kitamoto-otomatik-service
+    spec:
+      containers:
+      - name: kitamoto-otomatik-service
+        image: nikkinicholasromero/kitamoto-otomatik-service
+        ports:
+        - containerPort: 8080
